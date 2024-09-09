@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{17C77029-ED16-4603-B551-6772CF7B694A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Component Library Source\TMSWEBTextContComp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Core Source\TMSWEBTextContCompWEB.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\TextContCompDemo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TMSWEBTextContComp">
+        <MSBuild Projects="Component Library Source\TMSWEBTextContComp.dproj"/>
+    </Target>
+    <Target Name="TMSWEBTextContComp:Clean">
+        <MSBuild Projects="Component Library Source\TMSWEBTextContComp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TMSWEBTextContComp:Make">
+        <MSBuild Projects="Component Library Source\TMSWEBTextContComp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TMSWEBTextContCompWEB">
+        <MSBuild Projects="Core Source\TMSWEBTextContCompWEB.dproj"/>
+    </Target>
+    <Target Name="TMSWEBTextContCompWEB:Clean">
+        <MSBuild Projects="Core Source\TMSWEBTextContCompWEB.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TMSWEBTextContCompWEB:Make">
+        <MSBuild Projects="Core Source\TMSWEBTextContCompWEB.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TextContCompDemo">
+        <MSBuild Projects="Demo\TextContCompDemo.dproj"/>
+    </Target>
+    <Target Name="TextContCompDemo:Clean">
+        <MSBuild Projects="Demo\TextContCompDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TextContCompDemo:Make">
+        <MSBuild Projects="Demo\TextContCompDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TMSWEBTextContComp;TMSWEBTextContCompWEB;TextContCompDemo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TMSWEBTextContComp:Clean;TMSWEBTextContCompWEB:Clean;TextContCompDemo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TMSWEBTextContComp:Make;TMSWEBTextContCompWEB:Make;TextContCompDemo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
