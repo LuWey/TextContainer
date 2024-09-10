@@ -9,6 +9,8 @@ Typically, text stored in such a component at design time contains some kind of 
 
 The component offers properties and functions to handle and convert between those formats. In addition, a TJSValue/Object/Array can be created directly from the component.
 
+The package comes with 2 library units that might be useful for other purposes as well. One unit deals with the INI data format and one handles and converts JSON/YAML data format. As TMS Web Core does not natively support YAML and INI handling, these units might come handy.
+
 Special design time feature:
 ----------------------------
 
