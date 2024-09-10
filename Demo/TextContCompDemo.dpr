@@ -3,7 +3,8 @@
 uses
   Vcl.Forms,
   WEBLib.Forms,
-  Unit1 in 'Unit1.pas' {Form1: TWebForm} {*.html};
+  Unit1 in 'Unit1.pas' {Form1: TWebForm} {*.html},
+  WEBLib.MemINI in '..\Common\WEBLib.MemINI.pas';
 
 {$R *.res}
 

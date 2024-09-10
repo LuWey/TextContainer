@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Width = 640
-  Height = 480
+  Width = 206
+  Height = 164
   object WebButton1: TWebButton
     Left = 15
     Top = 20
@@ -11,7 +11,47 @@ object Form1: TForm1
     WidthPercent = 100.000000000000000000
     OnClick = WebButton1Click
   end
-  object TextCont1: TTextCont
+  object TContINI: TTextCont
+    Lines.Strings = (
+      '[platformio]'
+      'default_envs = megaatmega2560'
+      'lib_dir=C:\Work\Arduino\Libs'
+      ''
+      '[common]'
+      
+        'build_flags = -D LOGOUTPUT=SERIAL MACADDR={0xA8,0x61,0x0A,0xAE,0' +
+        'x17,0xC8}'
+      ';  -D MaxNumberTimers=5'
+      ''
+      '[env:uno]'
+      'platform = atmelavr'
+      'board = uno'
+      'framework = arduino'
+      'monitor_speed = 128000'
+      'monitor_port = COM4'
+      'lib_ldf_mode = deep'
+      '; lib_deps = ${common.lib_deps}'
+      'debug_tool = simavr'
+      'build_flags = ${common.build_flags} -D ARDUINO_UNO'
+      ''
+      '[env:megaatmega2560]'
+      'platform = atmelavr'
+      'board = megaatmega2560'
+      'framework = arduino'
+      'monitor_speed = 128000'
+      'monitor_port = COM3'
+      'lib_ldf_mode = deep'
+      '; lib_deps = ${common.lib_deps}'
+      'debug_tool = simavr'
+      'build_flags =  ${common.build_flags} -D ARDUINO_MEGA'
+      'mega=true'
+      'versionDate=2018-10-07T18:22:47.128')
+    Width = 437
+    Height = 662
+    Left = 95
+    Top = 60
+  end
+  object TContYAML: TTextCont
     Lines.Strings = (
       'gain: false'
       'steam: false'
@@ -45,7 +85,7 @@ object Form1: TForm1
       '    pipe: cowboy')
     Width = 437
     Height = 662
-    Left = 150
-    Top = 15
+    Left = 25
+    Top = 60
   end
 end

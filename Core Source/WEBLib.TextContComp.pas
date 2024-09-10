@@ -24,7 +24,7 @@ interface
 
 uses
  jsdelphisystem, System.SysUtils, System.Classes, WEBLib.ExtCtrls,
- WEBLib.Controls, WEBLib.REST, JS, WEBLib.Miletus;
+ WEBLib.Controls, WEBLib.REST, JS, WEBLib.MemINI;
 
 type
   TTextCont=class(TComponent)
@@ -44,10 +44,13 @@ type
     function GetAsYAMLStringFromJSON: string;
     function CheckIsJSON(var JV: TJSValue; DoFail : Boolean): Boolean;
     function CheckIsYAML(var JV: TJSValue; DoFail : Boolean): Boolean;
+    function CheckIsINI(var JV: TJSValue; DoFail: Boolean): Boolean;
     function GetAsJSON: string;
     function GetAsYAML: string;
     procedure SetAsJSON(const Value: string);
     procedure SetAsYAML(const Value: string);
+    function GetIsINIText: Boolean;
+    function GetAsINI: TMemINI;
    protected
     procedure Loaded; override;
    public
@@ -73,6 +76,13 @@ type
     // message if not. Empty text is allowed.
     property AsJSON : string read GetAsJSON write SetAsJSON;
 
+    // Assumes the text is in INI format and excepts with a detailed exception
+    // message if not. Empty text is allowed. To set an INI text, use the
+    // Text property. The property returns a TWebMemINI instance to further
+    // work with. Remember to store the Text of the instance back in this
+    // component after making changes.
+    property AsINI : TMemINI read GetAsINI;
+
     // Assumes the text is YAML and converts into a formatted JSON string.
     // Excepts on conversion error.
     property YAMLtoJSON: string read GetAsJSONStringFromYAML;
@@ -81,10 +91,11 @@ type
     // Excepts on conversion error.
     property JSONtoYAML: string read GetAsYAMLStringFromJSON;
 
-    // Check if the text can be interpreted as JSON or YAML
+    // Check if the text can be interpreted as JSON, YAML or INI.
     // Return False if the text is empty. Do not except.
     property IsYAMLText: Boolean read GetIsYAMLText;
     property IsJSONText: Boolean read GetIsJSONText;
+    property IsINIText: Boolean read GetIsINIText;
 
    published
     // The TStrings in which the text is stored
@@ -101,7 +112,7 @@ type
 
 implementation
 
-uses WEBLib.Yaml, WEBLib.MemINI;
+uses WEBLib.Yaml;
 
 constructor TTextCont.Create(AOwner: TComponent);
 begin
@@ -132,7 +143,7 @@ begin
  S := trim(Value);
  if S='' then
   begin
-   FLines.text := S;
+   FLines.Clear;
    exit;
   end;
 
@@ -148,7 +159,7 @@ begin
  S := trim(Value);
  if S='' then
   begin
-   FLines.text := S;
+   FLines.Clear;
    exit;
   end;
 
@@ -190,6 +201,7 @@ function TTextCont.GetAsJSValue: TJSValue;
 begin
  if CheckIsJSON(Result,false) then exit;
  if CheckIsYAML(Result,false) then exit;
+ if CheckIsINI(Result,false) then exit;
  Raise Exception.Create('Not convertable to TJSValue');
 end;
 
@@ -231,6 +243,7 @@ function TTextCont.CheckIsJSON(var JV : TJSValue; DoFail : Boolean): Boolean;
 var S : String;
 begin
  Result := false;
+ JV := nil;
  S := FLines.Text.Trim;
  if S='' then exit;
  try
@@ -248,11 +261,33 @@ function TTextCont.CheckIsYAML(var JV : TJSValue; DoFail : Boolean): Boolean;
 var S : String;
 begin
  Result := false;
+ JV := nil;
  S := FLines.Text.Trim;
  if S='' then exit;
  try
   S := TYamlUtils.YamlToJson(S);
   JV := TJSJSON.parse(S);
+  Result := true;
+ except
+  JV := nil;
+  if DoFail then raise;
+ end;
+End;
+
+{-------------------------------}
+
+function TTextCont.CheckIsINI(var JV : TJSValue; DoFail : Boolean): Boolean;
+var
+ S   : String;
+ INI : TMemINI;
+begin
+ Result := false;
+ JV := nil;
+ S := FLines.Text.Trim;
+ if S='' then exit;
+ try
+  INI := TMemINI.Create(S);
+  JV := INI.AsJSObject;
   Result := true;
  except
   JV := nil;
@@ -288,6 +323,20 @@ end;
 procedure TTextCont.SetText(const Value: string);
 begin
  FLines.Text := Value;
+end;
+
+{-------------------------------}
+
+function TTextCont.GetIsINIText: Boolean;
+begin
+ Result := TMemINI.IsINIText(FLines.Text);
+end;
+
+{-------------------------------}
+
+function TTextCont.GetAsINI: TMemINI;
+begin
+ Result := TMemINI.Create(FLines.Text.Trim)
 end;
 
 {-------------------------------}

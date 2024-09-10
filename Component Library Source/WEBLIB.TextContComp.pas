@@ -33,7 +33,8 @@ unit WEBLIB.TextContComp;
 interface
 
 uses
- Jsdelphisystem, System.SysUtils, System.Classes, JSON, WEBLIB.Controls, JS;
+ Jsdelphisystem, System.SysUtils, System.Classes, JSON, WEBLIB.Controls, JS,
+ WEBLib.MemINI;
 
 type
   [ComponentPlatforms(TMSWebPlatform)]
@@ -56,6 +57,8 @@ type
     function GetAsYAML: string;
     procedure SetAsJSON(const Value: string);
     procedure SetAsYAML(const Value: string);
+    function GetIsINIText: Boolean;
+    function GetAsINI: TMemINI;
    protected
    public
     constructor Create(AOwner: TComponent); override;
@@ -80,7 +83,14 @@ type
     // message if not. Empty text is allowed.
     property AsJSON : string read GetAsJSON write SetAsJSON;
 
-    // Assumes the text is YAML and converts into a formatted JSON string.
+    // Assumes the text is in INI format and excepts with a detailed exception
+    // message if not. Empty text is allowed. To set an INI text, use the
+    // Text property. The property returns a TWebMemINI instance to further
+    // work with. Remember to store the Text of the instance back in this
+    // component after making changes.
+    property AsINI : TMemINI read GetAsINI;
+
+   // Assumes the text is YAML and converts into a formatted JSON string.
     // Excepts on conversion error.
     property YAMLtoJSON: string read GetAsJSONStringFromYAML;
 
@@ -88,10 +98,11 @@ type
     // Excepts on conversion error.
     property JSONtoYAML: string read GetAsYAMLStringFromJSON;
 
-    // Check if the text can be interpreted as JSON or YAML
+    // Check if the text can be interpreted as JSON, YAML or INI.
     // Return False if the text is empty. Do not except.
     property IsYAMLText: Boolean read GetIsYAMLText;
     property IsJSONText: Boolean read GetIsJSONText;
+    property IsINIText: Boolean read GetIsINIText;
 
    published
     // The TStrings in which the text is stored
@@ -184,6 +195,16 @@ end;
 
 procedure TTextCont.SetText(const Value: string);
 begin
+end;
+
+function TTextCont.GetIsINIText: Boolean;
+begin
+ Result := false;
+end;
+
+function TTextCont.GetAsINI: TMemINI;
+begin
+ Result := Nil;
 end;
 
 end.

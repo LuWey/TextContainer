@@ -2,7 +2,7 @@
 
 interface
 
-uses System.Classes, System.SysUtils;
+uses System.Classes, System.SysUtils, JS;
 
 type
   EINISectionNotFound = class(Exception);
@@ -10,7 +10,7 @@ type
   EINIKeyNotFound = class(Exception);
   EINIKeyEmpty = class(Exception);
   EINIDanglingItem = class(Exception);
-  TWebMemINI=class
+  TMemINI=class
    private
     type
      TINIValue=class
@@ -62,6 +62,7 @@ type
     function GetLineCount: Integer;
     function GetKeyLineNo(Section, Key: string): Integer;
     function GetSectionLineNo(Section, Key: string): Integer;
+    function GetAsJSObject: TJSObject;
    public
     constructor Create(INIText: string; CaseSensitive: Boolean=False; UseLocale: Boolean=True);
     destructor Destroy; override;
@@ -76,6 +77,7 @@ type
     function SectionExists(Section: string): Boolean;
     function ValueExists(Section, Ident: string): Boolean;
     procedure WriteString(Section, Ident, Value: string);
+    class function IsINIText(Text : String) : Boolean;
 
     property Text: string read GetText write SetText;
     property LineCount : Integer read GetLineCount;
@@ -87,7 +89,7 @@ type
     property UseLocale: Boolean read GetUseLocale write SetUseLocale;
     property FormatSettings: TFormatSettings read FFormSets write FFormSets;
 
-    property AsString[Section, Key: string]: string read GetAsString write SetAsString;
+    property AsString[Section, Key: string]: string read GetAsString write SetAsString; default;
     property AsInteger[Section, Key: string]: Integer read GetAsInteger write SetAsInteger;
     property AsInt64[Section, Key: string]: Int64 read GetAsInt64 write SetAsInt64;
     property AsFloat[Section, Key: string]: Extended read GetAsExtended write SetAsExtended;
@@ -95,6 +97,7 @@ type
     property AsDate[Section, Key: string]: TDate read GetAsDate write SetAsDate;
     property AsTime[Section, Key: string]: TTime read GetAsTime write SetAsTime;
     property AsDateTime[Section, Key: string]: TDateTime read GetAsDateTime write SetAsDateTime;
+    property AsJSObject: TJSObject read GetAsJSObject;
 
     class function ClassTest : Boolean;
   end;
@@ -103,21 +106,21 @@ type
 
 implementation
 
-{ TWebMemINI }
+{ TMemINI }
 
 uses System.Types, System.DateUtils, Web;
 
-{ TWebMemINI.TINIValue }
+{ TMemINI.TINIValue }
 
-constructor TWebMemINI.TINIValue.Create(Val: string; LineNo: Integer);
+constructor TMemINI.TINIValue.Create(Val: string; LineNo: Integer);
 begin
  FVal := Val;
  FLineNo := LineNo;
 end;
 
-{ TWebMemINI.TINISection }
+{ TMemINI.TINISection }
 
-constructor TWebMemINI.TINISection.Create(LineNo: Integer; CaseSensitive: Boolean);
+constructor TMemINI.TINISection.Create(LineNo: Integer; CaseSensitive: Boolean);
 begin
  FLineNo := LineNo;
  FKVL := TStringList.Create;
@@ -127,14 +130,14 @@ begin
  FKVL.CaseSensitive := CaseSensitive;
 end;
 
-{ TWebMemINI }
+{ TMemINI }
 
-destructor TWebMemINI.TINISection.Destroy;
+destructor TMemINI.TINISection.Destroy;
 begin
  FKVL.Free;
 end;
 
-constructor TWebMemINI.Create(INIText: string; CaseSensitive: Boolean=False;
+constructor TMemINI.Create(INIText: string; CaseSensitive: Boolean=False;
  UseLocale: Boolean=True);
 begin
  inherited Create;
@@ -152,7 +155,7 @@ end;
 
 {-------------------------------}
 
-destructor TWebMemINI.Destroy;
+destructor TMemINI.Destroy;
 begin
  FSections.Free;
  FItems.Free;
@@ -161,7 +164,7 @@ end;
 
 {-------------------------------}
 
-procedure TWebMemINI.Clear;
+procedure TMemINI.Clear;
 begin
  FSections.Clear;
  FItems.Clear;
@@ -169,12 +172,12 @@ end;
 
 {-------------------------------}
 
-function TWebMemINI.GetText: string;
+function TMemINI.GetText: string;
 begin
  Result := FItems.Text;
 end;
 
-procedure TWebMemINI.SetText(const Value: string);
+procedure TMemINI.SetText(const Value: string);
 var
  I, P: Integer;
  S, SecName,
@@ -222,12 +225,12 @@ end;
 
 {-------------------------------}
 
-function TWebMemINI.GetCaseSensitive: Boolean;
+function TMemINI.GetCaseSensitive: Boolean;
 begin
  Result := FSections.CaseSensitive;
 end;
 
-procedure TWebMemINI.SetCaseSensitive(const Value: Boolean);
+procedure TMemINI.SetCaseSensitive(const Value: Boolean);
 var I: Integer;
 begin
  if FSections.CaseSensitive<>Value then
@@ -240,12 +243,12 @@ end;
 
 {-------------------------------}
 
-function TWebMemINI.GetUseLocale: Boolean;
+function TMemINI.GetUseLocale: Boolean;
 begin
  Result := FUseLocale;
 end;
 
-procedure TWebMemINI.SetUseLocale(const Value: Boolean);
+procedure TMemINI.SetUseLocale(const Value: Boolean);
 begin
  if FUseLocale<>Value then
   FUseLocale := Value;
@@ -253,7 +256,7 @@ end;
 
 {-------------------------------}
 
-function TWebMemINI.GetValue(Section, Key: string; DoFail: Boolean): TINIValue;
+function TMemINI.GetValue(Section, Key: string; DoFail: Boolean): TINIValue;
 var
  Ind: Integer;
  Sec: TINISection;
@@ -284,12 +287,12 @@ end;
 
 {-------------------------------}
 
-function TWebMemINI.GetAsString(Section, Key: string): string;
+function TMemINI.GetAsString(Section, Key: string): string;
 begin
  Result := GetValue(Section, Key, true).FVal;
 end;
 
-procedure TWebMemINI.SetAsString(Section, Key: string; const Value: string);
+procedure TMemINI.SetAsString(Section, Key: string; const Value: string);
 var
  Ind,
  LineNo: Integer;
@@ -332,7 +335,7 @@ end;
 
 {-------------------------------}
 
-procedure TWebMemINI.DeleteKey(Section, Key: string);
+procedure TMemINI.DeleteKey(Section, Key: string);
 var
  Ind: Integer;
  Sec: TINISection;
@@ -348,7 +351,7 @@ end;
 
 {-------------------------------}
 
-function TWebMemINI.MaxSectionItemLine(Sec: TINISection) : Integer;
+function TMemINI.MaxSectionItemLine(Sec: TINISection) : Integer;
 var
  Ind: Integer;
  LNo: Integer;
@@ -364,7 +367,7 @@ end;
 
 {-------------------------------}
 
-procedure TWebMemINI.EraseSection(Section: string);
+procedure TMemINI.EraseSection(Section: string);
 var
  Ind,
  Min,
@@ -385,7 +388,7 @@ end;
 
 {-------------------------------}
 
-procedure TWebMemINI.ReadSection(Section: string; Strings: TStrings);
+procedure TMemINI.ReadSection(Section: string; Strings: TStrings);
 var
  Ind: Integer;
  Sec: TINISection;
@@ -404,7 +407,7 @@ end;
 
 {-------------------------------}
 
-procedure TWebMemINI.ReadSections(Strings: TStrings);
+procedure TMemINI.ReadSections(Strings: TStrings);
 var Ind: Integer;
 begin
  Strings.Clear;
@@ -415,7 +418,7 @@ end;
 
 {-------------------------------}
 
-procedure TWebMemINI.ReadSectionValues(Section: string; Strings: TStrings);
+procedure TMemINI.ReadSectionValues(Section: string; Strings: TStrings);
 var
  Ind: Integer;
  Sec: TINISection;
@@ -435,7 +438,7 @@ end;
 
 {-------------------------------}
 
-function TWebMemINI.ReadString(Section, Ident, Default: string): string;
+function TMemINI.ReadString(Section, Ident, Default: string): string;
 var IVal: TINIValue;
 begin
  IVal := GetValue(Section, Ident, False);
@@ -445,7 +448,7 @@ end;
 
 {-------------------------------}
 
-function TWebMemINI.SectionExists(Section: string): Boolean;
+function TMemINI.SectionExists(Section: string): Boolean;
 var Ind: Integer;
 begin
  Section := Trim(Section);
@@ -455,76 +458,76 @@ end;
 
 {-------------------------------}
 
-function TWebMemINI.ValueExists(Section, Ident: string): Boolean;
+function TMemINI.ValueExists(Section, Ident: string): Boolean;
 begin
  Result := GetValue(Section, Ident, False)<>nil;
 end;
 
 {-------------------------------}
 
-procedure TWebMemINI.WriteString(Section, Ident, Value: string);
+procedure TMemINI.WriteString(Section, Ident, Value: string);
 begin
  SetAsString(Section, Ident, Value);
 end;
 
 {-------------------------------}
 
-function TWebMemINI.GetAsInteger(Section, Key: string): Integer;
+function TMemINI.GetAsInteger(Section, Key: string): Integer;
 begin
  Result := GetAsString(Section, Key).ToInteger;
 end;
 
-procedure TWebMemINI.SetAsInteger(Section, Key: string; const Value: Integer);
+procedure TMemINI.SetAsInteger(Section, Key: string; const Value: Integer);
 begin
  SetAsString(Section, Key, Value.ToString);
 end;
 
 {-------------------------------}
 
-function TWebMemINI.GetAsInt64(Section, Key: string): Int64;
+function TMemINI.GetAsInt64(Section, Key: string): Int64;
 begin
  Result := StrToInt64(GetAsString(Section, Key));
 end;
 
-procedure TWebMemINI.SetAsInt64(Section, Key: string; const Value: Int64);
+procedure TMemINI.SetAsInt64(Section, Key: string; const Value: Int64);
 begin
  SetAsString(Section, Key, Value.ToString);
 end;
 
 {-------------------------------}
 
-function TWebMemINI.GetAsExtended(Section, Key: string): Extended;
+function TMemINI.GetAsExtended(Section, Key: string): Extended;
 var Val: string;
 begin
  Val := GetAsString(Section, Key);
  Result := StrToFloat(Val, FFormSets);
 end;
 
-procedure TWebMemINI.SetAsExtended(Section, Key: string; const Value: Extended);
+procedure TMemINI.SetAsExtended(Section, Key: string; const Value: Extended);
 begin
  SetAsString(Section, Key, FloatToStr(Value, FFormSets));
 end;
 
 {-------------------------------}
 
-function TWebMemINI.GetAsBoolean(Section, Key: string): Boolean;
+function TMemINI.GetAsBoolean(Section, Key: string): Boolean;
 begin
  Result := StrToBool(GetAsString(Section, Key));
 end;
 
-procedure TWebMemINI.SetAsBoolean(Section, Key: string; const Value: Boolean);
+procedure TMemINI.SetAsBoolean(Section, Key: string; const Value: Boolean);
 begin
  SetAsString(Section, Key, BoolToStr(Value, True));
 end;
 
 {-------------------------------}
 
-function TWebMemINI.GetAsDate(Section, Key: string): TDate;
+function TMemINI.GetAsDate(Section, Key: string): TDate;
 begin
  Result := Trunc(GetAsDateTime(Section, Key));
 end;
 
-procedure TWebMemINI.SetAsDate(Section, Key: string; const Value: TDate);
+procedure TMemINI.SetAsDate(Section, Key: string; const Value: TDate);
 begin
  {$IFDEF PAS2JS}
  SetAsString(Section, Key, DateToRFC3339(Trunc(Value)));
@@ -533,12 +536,12 @@ end;
 
 {-------------------------------}
 
-function TWebMemINI.GetAsTime(Section, Key: string): TTime;
+function TMemINI.GetAsTime(Section, Key: string): TTime;
 begin
  Result := Frac(GetAsDateTime(Section, Key));
 end;
 
-procedure TWebMemINI.SetAsTime(Section, Key: string; const Value: TTime);
+procedure TMemINI.SetAsTime(Section, Key: string; const Value: TTime);
 begin
  {$IFDEF PAS2JS}
  SetAsString(Section, Key, TimeToRFC3339(Frac(Value)));
@@ -547,7 +550,7 @@ end;
 
 {-------------------------------}
 
-function TWebMemINI.GetAsDateTime(Section, Key: string): TDateTime;
+function TMemINI.GetAsDateTime(Section, Key: string): TDateTime;
 var
  TimeOnly,
  DateOnly : Boolean;
@@ -570,7 +573,7 @@ end;
 
 {-------------------------------}
 
-procedure TWebMemINI.SetAsDateTime(Section, Key: string; const Value: TDateTime);
+procedure TMemINI.SetAsDateTime(Section, Key: string; const Value: TDateTime);
 begin
  {$IFDEF PAS2JS}
  SetAsString(Section, Key, DateTimeToRFC3339(Value));
@@ -579,28 +582,28 @@ end;
 
 {-------------------------------}
 
-function TWebMemINI.GetLine(LineNo: Integer): string;
+function TMemINI.GetLine(LineNo: Integer): string;
 begin
  Result := FItems[LineNo];
 end;
 
 {-------------------------------}
 
-function TWebMemINI.GetLineCount: Integer;
+function TMemINI.GetLineCount: Integer;
 begin
  Result := FItems.Count;
 end;
 
 {-------------------------------}
 
-function TWebMemINI.GetKeyLineNo(Section, Key: string): Integer;
+function TMemINI.GetKeyLineNo(Section, Key: string): Integer;
 begin
  Result := GetValue(Section, Key, true).FLineNo;
 end;
 
 {-------------------------------}
 
-function TWebMemINI.GetSectionLineNo(Section, Key: string): Integer;
+function TMemINI.GetSectionLineNo(Section, Key: string): Integer;
 var
  Ind: Integer;
  Sec: TINISection;
@@ -613,6 +616,69 @@ begin
 
  Sec := FSections.Objects[Ind] as TINISection;
  Result := Sec.FLineNo;
+end;
+
+{-------------------------------}
+
+class function TMemINI.IsINIText(Text: String): Boolean;
+var
+ INI : TMemINI;
+ SL1,
+ SL2 : TStringList;
+ S   : String;
+begin
+ Result := false;
+ if Text.Trim='' then exit;
+ SL1 := TStringList.Create;
+ SL2 := TStringList.Create;
+ INI := Nil;
+ try
+  try
+   INI := TMemINI.Create(Text);
+   // If there is not at least one section in the text, it's not an INI
+   INI.ReadSections(SL1);
+   if SL1.Count<1 then exit;
+   // If there is no section that has at least 1 item, it's not an INI
+   for S in SL1 do
+    begin
+     INI.ReadSection(S,SL2);
+     if SL2.Count>0 then exit(true);
+    end;
+  except
+   // In case of any error, it's not an INI
+  end;
+ finally
+  INI.Free;
+  SL1.Free;
+  SL2.Free;
+ end;
+end;
+
+{-------------------------------}
+
+function TMemINI.GetAsJSObject: TJSObject;
+var
+ I, K             : Integer;
+ SecNam, Key, Val : String;
+ Sec              : TINISection;
+ SecJO            : TJSObject;
+ IV               : TINIValue;
+Begin
+ Result := TJSObject.new;
+ for I := 0 to FSections.Count-1 do
+  Begin
+   SecNam := FSections[I];
+   SecJO  := TJSObject.new;
+   Sec    := FSections.Objects[I] as TINISection;
+   for K := 0 to Sec.FKVL.Count-1 do
+    begin
+     Key := Sec.FKVL[K];
+     IV  := Sec.FKVL.Objects[K] as TINIValue;
+     Val := IV.FVal;
+     SecJO[Key] := Val;
+    end;
+   Result[SecNam] := SecJO;
+  End;
 end;
 
 {-------------------------------}
@@ -753,10 +819,10 @@ Const
 type
  ETestFail = class(Exception);
 
-class function TWebMemINI.ClassTest : Boolean;
+class function TMemINI.ClassTest : Boolean;
 {$IFDEF DEBUG}
 var
- INI: TWebMemINI;
+ INI: TMemINI;
  SL : TStringList;
  DT : TDateTime;
 
@@ -767,7 +833,7 @@ var
 
 begin
  Result := false;
- INI := TWebMemINI.Create(INITestData);
+ INI := TMemINI.Create(INITestData);
  SL := TStringList.Create;
  try
   try
@@ -937,12 +1003,12 @@ begin
    DT := EncodeDateTime(2024,3,12,18,22,46,0);
    if INI.AsDateTime['LanguageTest', '创建日期']<>DT then Fail(560);
 
-   console.log('TWebMemINI.ClassTest passed!');
+   console.log('TMemINI.ClassTest passed!');
    Result := true;
   except on E:Exception do
    begin
     console.warn(E.Message);
-    console.log('TWebMemINI.ClassTest failed!');
+    console.log('TMemINI.ClassTest failed!');
    end
   end;
  finally

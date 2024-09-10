@@ -115,6 +115,7 @@
             <FormType>dfm</FormType>
             <DesignClass>TWebForm</DesignClass>
         </DCCReference>
+        <DCCReference Include="..\Common\WEBLib.MemINI.pas"/>
         <None Include="index.html"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

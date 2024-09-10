@@ -1,49 +1,28 @@
 ﻿[Closed Files]
-File_0=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.Yaml.pas',0,1,5,1,40,0,0,,
-File_1=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas',0,1,1,90,21,0,0,,
-File_2=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\WEBLib.Yaml.pas',0,1,1,1,1,0,0,,
-File_3=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\WEBLib.MemINI.pas',0,1,1,88,15,0,0,,
-File_4=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.Yaml.pas',0,1,55,97,75,0,0,,
-File_5=TSourceModule,'C:\TMS\TMS WEB Core RSXE13\Component Library Source\WEBLib.Miletus.pas',0,1,16,1,41,0,0,,
-File_6=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\Unit1.html',0,1,1,1,1,0,0,,
-File_7=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\SOURCE\PROPERTY EDITORS\ColnEdit.pas',0,1,1,1,14,0,0,,
-File_8=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\LongText\Demo\Unit1.pas',0,1,1,1,1,0,0,,
-File_9=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\LongText\Demo\Unit1.dfm',0,1,1,1,1,0,0,,
-File_10=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\ServerLogging\Component Library Source\WEBLIB.ServerLoggerComp.pas',0,1,141,40,182,0,0,,
-File_11=TSourceModule,'C:\Work\Proj\Lib10.2\Components\LongText\LongText.pas',0,1,1,1,1,0,0,,
-File_12=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\LongText\dtLongText.pas',0,1,1,100,7,0,0,,
-File_13=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\LongText\LongText.pas',0,1,1,5,284,0,0,,
-File_14=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\ServerLogging - Kopie.pas',0,1,412,5,461,0,0,,
+File_0=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\WEBLIB.TextContComp.pas',0,1,101,1,133,0,0,,{7,42,4}
+File_1=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\TextContCompEditor.pas',0,1,1,74,33,0,0,,
+File_2=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.TextContCompReg.pas',0,1,1,1,21,0,0,,{7
+File_3=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.IniFiles.pas',0,1,786,12,822,0,0,,
+File_4=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Classes.pas',0,1,776,1,801,0,0,,
+File_5=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\WEBLib.Yaml.pas',0,1,1,1,1,0,0,,
+File_6=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\WEBLib.MemINI.pas',0,1,1,88,15,0,0,,
+File_7=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.Yaml.pas',0,1,55,97,75,0,0,,
+File_8=TSourceModule,'C:\TMS\TMS WEB Core RSXE13\Component Library Source\WEBLib.Miletus.pas',0,1,16,1,41,0,0,,
+File_9=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\Unit1.html',0,1,1,1,1,0,0,,
+File_10=TSourceModule,'c:\program files (x86)\embarcadero\studio\21.0\SOURCE\PROPERTY EDITORS\ColnEdit.pas',0,1,1,1,14,0,0,,
+File_11=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\LongText\Demo\Unit1.pas',0,1,1,1,1,0,0,,
+File_12=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\LongText\Demo\Unit1.dfm',0,1,1,1,1,0,0,,
+File_13=TSourceModule,'C:\Work\Proj\Lib10.2\TMSWeb\Components\ServerLogging\Component Library Source\WEBLIB.ServerLoggerComp.pas',0,1,141,40,182,0,0,,
+File_14=TSourceModule,'C:\Work\Proj\Lib10.2\Components\LongText\LongText.pas',0,1,1,1,1,0,0,,
 
 [Modules]
-Module0=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.TextContCompReg.pas
-Module1=default.htm
-Module2=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\TMSWEBTextContComp.dproj
-Module3=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\TMSWEBTextContCompWEB.dproj
-Module4=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\TextContCompDemo.dproj
-Module5=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\Unit1.pas
-Module6=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.TextContComp.pas
-Module7=c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.IniFiles.pas
-Module8=c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Classes.pas
-Module9=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\WEBLIB.TextContComp.pas
-Module10=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\TextContCompEditor.pas
-Count=11
+Module0=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\Unit1.pas
+Module1=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.TextContComp.pas
+Module2=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas
+Module3=default.htm
+Module4=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.Yaml.pas
+Count=5
 EditWindowCount=1
-
-[C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.TextContCompReg.pas]
-ModuleType=TSourceModule
-
-[default.htm]
-ModuleType=TURLModule
-
-[C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\TMSWEBTextContComp.dproj]
-ModuleType=TBaseProject
-
-[C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\TMSWEBTextContCompWEB.dproj]
-ModuleType=TBaseProject
-
-[C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\TextContCompDemo.dproj]
-ModuleType=TBaseProject
 
 [C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\Unit1.pas]
 ModuleType=TSourceModule
@@ -51,32 +30,23 @@ ModuleType=TSourceModule
 [C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.TextContComp.pas]
 ModuleType=TSourceModule
 
-[c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.IniFiles.pas]
+[C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas]
 ModuleType=TSourceModule
 
-[c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Classes.pas]
-ModuleType=TSourceModule
+[default.htm]
+ModuleType=TURLModule
 
-[C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\WEBLIB.TextContComp.pas]
-ModuleType=TSourceModule
-
-[C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\TextContCompEditor.pas]
+[C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.Yaml.pas]
 ModuleType=TSourceModule
 
 [EditWindow0]
-ViewCount=11
-CurrentEditView=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.TextContCompReg.pas
+ViewCount=5
+CurrentEditView=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\Unit1.pas
 View0=0
 View1=1
 View2=2
 View3=3
 View4=4
-View5=5
-View6=6
-View7=7
-View8=8
-View9=9
-View10=10
 PercentageSizes=1
 Create=1
 Visible=1
@@ -112,103 +82,43 @@ WelcomePageURL=bds:/default.htm
 
 [View1]
 CustomEditViewType=TEditView
-Module=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\TMSWEBTextContComp.dpk
-CursorX=31
-CursorY=6
-TopLine=2
-LeftCol=1
-Bookmarks=
-EditViewName=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\TMSWEBTextContComp.dpk
-
-[View2]
-CustomEditViewType=TEditView
-Module=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\WEBLIB.TextContComp.pas
-CursorX=1
-CursorY=19
-TopLine=1
-LeftCol=1
-Bookmarks={7,41,4}
-EditViewName=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\WEBLIB.TextContComp.pas
-
-[View3]
-CustomEditViewType=TEditView
 Module=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.TextContComp.pas
-CursorX=32
-CursorY=104
-TopLine=65
+CursorX=16
+CursorY=204
+TopLine=168
 LeftCol=1
 Bookmarks={7,37,5}
 EditViewName=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.TextContComp.pas
 
-[View4]
-CustomEditViewType=TEditView
-Module=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\TextContCompEditor.pas
-CursorX=74
-CursorY=33
-TopLine=1
-LeftCol=1
-Bookmarks=
-EditViewName=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Component Library Source\TextContCompEditor.pas
-
-[View5]
-CustomEditViewType=TEditView
-Module=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\TextContCompDemo.dpr
-CursorX=29
-CursorY=7
-TopLine=1
-LeftCol=1
-Bookmarks=
-EditViewName=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\TextContCompDemo.dpr
-
-[View6]
+[View2]
 CustomEditViewType=TEditView
 Module=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\Unit1.pas
-CursorX=99
-CursorY=39
-TopLine=1
+CursorX=24
+CursorY=49
+TopLine=19
 LeftCol=1
 Bookmarks={7,11,1}
-EditViewName=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\Unit1.pas
+EditViewName=Borland.FormDesignerView
 
-[View7]
+[View3]
 CustomEditViewType=TEditView
-Module=c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Classes.pas
-CursorX=1
-CursorY=801
-TopLine=776
+Module=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas
+CursorX=19
+CursorY=662
+TopLine=643
 LeftCol=1
-Bookmarks=
-EditViewName=c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.Classes.pas
+Bookmarks={7,14,1}
+EditViewName=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas
 
-[View8]
+[View4]
 CustomEditViewType=TEditView
-Module=c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.IniFiles.pas
-CursorX=12
-CursorY=822
-TopLine=786
-LeftCol=1
-Bookmarks=
-EditViewName=c:\program files (x86)\embarcadero\studio\21.0\source\rtl\common\System.IniFiles.pas
-
-[View9]
-CustomEditViewType=TEditView
-Module=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.TextContCompReg.pas
-CursorX=74
-CursorY=4
-TopLine=1
-LeftCol=1
-Bookmarks={7,18,1}
-EditViewName=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\WEBLib.TextContCompReg.pas
-
-[View10]
-CustomEditViewType=TEditView
-Module=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\TMSWEBTextContCompWEB.dpk
-CursorX=48
-CursorY=19
+Module=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.Yaml.pas
+CursorX=9
+CursorY=1
 TopLine=1
 LeftCol=1
 Bookmarks=
-EditViewName=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Core Source\TMSWEBTextContCompWEB.dpk
+EditViewName=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.Yaml.pas
 
 [Watches]
 Count=0
@@ -224,11 +134,11 @@ State=0
 Left=0
 Top=0
 Width=3824
-Height=1214
+Height=1185
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3824
-ClientHeight=1214
+ClientHeight=1185
 TBDockHeight=216
 LRDockWidth=13602
 Dockable=1
@@ -307,6 +217,32 @@ LRDockWidth=2770
 Dockable=1
 StayOnTop=0
 
+[ConfigurationManager]
+PercentageSizes=1
+Create=1
+Visible=0
+Docked=0
+State=0
+Left=1836
+Top=3484
+Width=2199
+Height=3068
+MaxLeft=-4
+MaxTop=-7
+ClientWidth=2137
+ClientHeight=2787
+TBDockHeight=3068
+LRDockWidth=2199
+Dockable=1
+StayOnTop=0
+
+[TConfigMgrDlg]
+Column0=120
+Column1=120
+Column2=120
+Column3=100
+Column4=140
+
 [ToolForm]
 PercentageSizes=1
 Create=1
@@ -340,11 +276,16 @@ MaxLeft=-1
 MaxTop=-1
 ClientWidth=1895
 ClientHeight=3606
-TBDockHeight=9052
+TBDockHeight=7407
 LRDockWidth=1895
 Dockable=1
 StayOnTop=0
 SplitPos=111
+
+[PropInspDesignerSelection]
+ArrangeBy=Name
+SelectedItem=Align,
+ExpandedItems=LiveBindings-Designer=0,Font=0
 
 [frmDesignPreview]
 PercentageSizes=1
@@ -355,11 +296,11 @@ State=0
 Left=0
 Top=0
 Width=1996
-Height=8851
+Height=7205
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1996
-ClientHeight=8851
+ClientHeight=7205
 TBDockHeight=5955
 LRDockWidth=2512
 Dockable=1
@@ -371,8 +312,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=0
-Top=0
+Left=-2296
+Top=370
 Width=273
 Height=359
 MaxLeft=-1
@@ -396,11 +337,11 @@ State=0
 Left=0
 Top=0
 Width=3824
-Height=1214
+Height=1185
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3824
-ClientHeight=1214
+ClientHeight=1185
 TBDockHeight=409
 LRDockWidth=4949
 Dockable=1
@@ -414,12 +355,12 @@ Docked=1
 State=0
 Left=0
 Top=0
-Width=3824
-Height=1214
+Width=5824
+Height=1185
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=3824
-ClientHeight=1214
+ClientWidth=5824
+ClientHeight=1185
 TBDockHeight=216
 LRDockWidth=7406
 Dockable=1
@@ -427,7 +368,7 @@ StayOnTop=0
 Column0Width=145
 Column1Width=100
 Column2Width=115
-Column3Width=619
+Column3Width=1131
 
 [LocalVarsWindow]
 PercentageSizes=1
@@ -438,11 +379,11 @@ State=0
 Left=0
 Top=0
 Width=3824
-Height=1214
+Height=1185
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3824
-ClientHeight=1214
+ClientHeight=1185
 TBDockHeight=1537
 LRDockWidth=3484
 Dockable=1
@@ -457,11 +398,11 @@ State=0
 Left=0
 Top=0
 Width=3824
-Height=1214
+Height=1185
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3824
-ClientHeight=1214
+ClientHeight=1185
 TBDockHeight=2062
 LRDockWidth=3484
 Dockable=1
@@ -476,11 +417,11 @@ State=0
 Left=0
 Top=0
 Width=2340
-Height=1286
+Height=1042
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2340
-ClientHeight=1286
+ClientHeight=1042
 TBDockHeight=2320
 LRDockWidth=2824
 Dockable=1
@@ -541,11 +482,11 @@ State=0
 Left=0
 Top=0
 Width=1996
-Height=8851
+Height=7205
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1996
-ClientHeight=8851
+ClientHeight=7205
 TBDockHeight=4885
 LRDockWidth=7148
 Dockable=1
@@ -557,8 +498,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=0
-Top=0
+Left=501
+Top=1099
 Width=2855
 Height=3211
 MaxLeft=-1
@@ -576,8 +517,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-8
-Top=-8
+Left=-250
+Top=-124
 Width=1848
 Height=3139
 MaxLeft=-1
@@ -636,11 +577,11 @@ State=0
 Left=0
 Top=0
 Width=3824
-Height=1214
+Height=1185
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3824
-ClientHeight=1214
+ClientHeight=1185
 TBDockHeight=1545
 LRDockWidth=8742
 Dockable=1
@@ -719,11 +660,11 @@ State=0
 Left=0
 Top=0
 Width=1996
-Height=8851
+Height=7205
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1996
-ClientHeight=8851
+ClientHeight=7205
 TBDockHeight=4885
 LRDockWidth=5309
 Dockable=1
@@ -783,15 +724,15 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=8
-Top=8
+Left=1272
+Top=28
 Width=3824
-Height=1415
+Height=1386
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3824
-ClientHeight=1415
-TBDockHeight=1415
+ClientHeight=1386
+TBDockHeight=1386
 LRDockWidth=3824
 Dockable=1
 StayOnTop=0
@@ -815,7 +756,7 @@ MaxLeft=-1
 MaxTop=-1
 ClientWidth=1996
 ClientHeight=4583
-TBDockHeight=9052
+TBDockHeight=7407
 LRDockWidth=1996
 Dockable=1
 StayOnTop=0
@@ -839,7 +780,7 @@ MaxLeft=-1
 MaxTop=-1
 ClientWidth=1895
 ClientHeight=3542
-TBDockHeight=9052
+TBDockHeight=7407
 LRDockWidth=1895
 Dockable=1
 StayOnTop=0
@@ -863,7 +804,7 @@ MaxLeft=-1
 MaxTop=-1
 ClientWidth=1996
 ClientHeight=2565
-TBDockHeight=9052
+TBDockHeight=7407
 LRDockWidth=1996
 Dockable=1
 StayOnTop=0

@@ -38,6 +38,7 @@ requires
 
 contains
   WEBLIB.TextContComp in 'WEBLIB.TextContComp.pas',
-  TextContCompEditor in 'TextContCompEditor.pas';
+  TextContCompEditor in 'TextContCompEditor.pas',
+  WEBLib.MemINI in '..\Common\WEBLib.MemINI.pas';
 
 end.

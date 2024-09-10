@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.848,C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.366,=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.269,C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.193,C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.448,=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\Unit2.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.004,=C:\Work\Proj\Lib10.2\TMSWeb\WEBLib.MemINI.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.242,C:\Work\Proj\Lib10.2\TMSWeb\WEBLib.MemINI.pas=</Transaction>
     <Transaction>1899.12.30 00:00:00.000.241,C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\Unit2.pas=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.031,=C:\Work\Proj\Lib10.2\TMSWeb\WEBLib.Yaml.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.483,=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.243,C:\Work\Proj\Lib10.2\TMSWeb\WEBLib.Yaml.pas=</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.448,=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Demo\Unit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.031,=C:\Work\Proj\Lib10.2\TMSWeb\WEBLib.Yaml.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.796,=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.406,=C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.652,C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.848,C:\Work\Proj\Lib10.2\TMSWeb\Components\TextContainer\Common\WEBLib.MemINI.pas=</Transaction>
   </Transactions>
 </BorlandProject>
