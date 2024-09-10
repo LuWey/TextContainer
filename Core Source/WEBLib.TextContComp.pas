@@ -3,7 +3,7 @@ unit WEBLib.TextContComp;
 (*
 
   This TMS WEB Core component provides a place to store lengthy multiline
-  text strings. The stored text can be interpreted as YAML or JSON.
+  text strings. The stored text can be interpreted as YAML, JSON or INI.
 
   This unit represents the "core source" component code used by pas2js.
 
@@ -12,11 +12,11 @@ unit WEBLib.TextContComp;
   directly in the code.
 
   Typically, text stored here at design time contains configuration parameters
-  of some kind. These parameters are often formatted as JSON or YAML.
+  of some kind. These parameters are often formatted as JSON, YAML on INI text.
 
   The component offers properties and functions to handle and convert between
-  those formats, first of all being able to a TJSValue, TJSObject or TJSArray from
-  the stored text.
+  those formats, first of all being able to create a TJSValue, TJSObject or
+  TJSArray from the stored text.
 
 *)
 
