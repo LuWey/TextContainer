@@ -1,4 +1,5 @@
-# TextContainer
+# ![grafik](https://github.com/user-attachments/assets/500b8915-dc8a-43e6-83f9-913f35d7f260) TextContainer
+
 ### A TMS Web Core component for saving multi-line text in various formats
 
 This component offers the possibility to save long multi-line text strings. The saved text can be interpreted as YAML, JSON or INI.
